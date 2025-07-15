@@ -27,7 +27,7 @@ Universal Ruby library to handle WebSocket protocol.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 # write .gemspec
