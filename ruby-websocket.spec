@@ -7,7 +7,7 @@
 Summary:	Universal Ruby library to handle WebSocket protocol
 Name:		ruby-%{pkgname}
 Version:	1.2.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	https://rubygems.org/gems/%{pkgname}-%{version}.gem
