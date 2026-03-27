@@ -6,19 +6,18 @@
 %define pkgname websocket
 Summary:	Universal Ruby library to handle WebSocket protocol
 Name:		ruby-%{pkgname}
-Version:	1.2.2
-Release:	2
+Version:	1.2.11
+Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	https://rubygems.org/gems/%{pkgname}-%{version}.gem
-# Source0-md5:	d75d6d4097a705d9c5ff5bc2a6546103
+# Source0-md5:	d4a209748d5d10c9ff88d199e8cdc1cb
 URL:		http://github.com/imanel/websocket-ruby
-Patch0:		comment-broken-tests.patch
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
-%endif
 BuildRequires:	rubygem(rspec)
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,14 +26,12 @@ Universal Ruby library to handle WebSocket protocol.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch -P0 -p0
 
 %build
 # write .gemspec
 %__gem_helper spec
 
 %if %{with tests}
-find spec -name *.rb | xargs sed -i '/its/ s/^/#/'
 rspec -Ilib spec
 %endif
 
